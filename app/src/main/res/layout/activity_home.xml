@@ -25,8 +25,25 @@
         android:layout_below="@+id/tv_blog_url"
         android:text="@string/btn_scan_now"
         android:layout_centerHorizontal="true"
+        android:onClick="scanNow"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:id="@+id/btn_scan_now" />
 
+    <TextView
+        android:id="@+id/scan_format"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:layout_below="@+id/btn_scan_now"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/activity_vertical_margin" />
+    <TextView
+        android:id="@+id/scan_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:layout_below="@+id/scan_format"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal" />
 
 </RelativeLayout>
