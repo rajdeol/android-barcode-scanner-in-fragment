@@ -4,6 +4,6 @@
     <string name="hello_world">Welcome to Android bar Code Scanner By RajDeol. For more details visit my blog </string>
     <string name="blog_url">http://blog.whomeninja.in/android-barcode-scanner/</string>
     <string name="action_settings">Settings</string>
-    <string name="btn_scan_now">Sacn Now</string>
-    <string name="txt_scan_bar_code">Scan a Bar Code</string>
+    <string name="btn_scan_now">Scan Now</string>
+    <string name="scan_bar_code">Scan a Bar Code</string>
 </resources>
