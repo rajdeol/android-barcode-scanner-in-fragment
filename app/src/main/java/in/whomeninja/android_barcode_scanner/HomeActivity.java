@@ -56,7 +56,7 @@ public class HomeActivity extends ActionBarActivity {
     public void scanNow(View view){
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
-        integrator.setPrompt(String.valueOf(R.string.scan_bar_code));
+        integrator.setPrompt(this.getString(R.string.scan_bar_code));
         integrator.setResultDisplayDuration(0);
         integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes
         integrator.setCameraId(0);  // Use a specific camera of the device
