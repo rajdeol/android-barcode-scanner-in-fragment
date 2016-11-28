@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.google.zxing.client.android.CaptureActivity;
 
 
 public class HomeActivity extends ActionBarActivity {
@@ -55,10 +56,13 @@ public class HomeActivity extends ActionBarActivity {
      */
     public void scanNow(View view){
         IntentIntegrator integrator = new IntentIntegrator(this);
+        // use forSupportFragment or forFragment method to use fragments instead of activity
+        // use setCaptureLayout to provide the ID of layout to use for scanning
+        integrator.setCaptureLayout(R.layout.scan_screen);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
         integrator.setPrompt(this.getString(R.string.scan_bar_code));
-        integrator.setResultDisplayDuration(0);
-        integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes
+        integrator.setResultDisplayDuration(0); // milliseconds to display result on screen after scan
+        //integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes
         integrator.setCameraId(0);  // Use a specific camera of the device
         integrator.initiateScan();
     }
