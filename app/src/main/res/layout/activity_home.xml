@@ -46,6 +46,12 @@
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:gravity="center_horizontal" />
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scan_fragment"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scan_screen"
