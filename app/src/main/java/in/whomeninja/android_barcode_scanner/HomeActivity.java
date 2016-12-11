@@ -1,6 +1,5 @@
 package in.whomeninja.android_barcode_scanner;
 
-import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
@@ -11,12 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
-
-public class HomeActivity extends ActionBarActivity {
-    private String codeFormat,codeContent;
+public class HomeActivity extends ActionBarActivity implements ScanResultReceiver{
     private TextView formatTxt, contentTxt;
 
     @Override
@@ -64,10 +58,16 @@ public class HomeActivity extends ActionBarActivity {
         fragmentTransaction.commit();
     }
 
-    public void showScanData(String codeFormat, String codeContent){
+    @Override
+    public void scanResultData(String codeFormat, String codeContent){
         // display it on screen
         formatTxt.setText("FORMAT: " + codeFormat);
         contentTxt.setText("CONTENT: " + codeContent);
     }
 
+    @Override
+    public void scanResultData(NoScanResultException noScanData) {
+        Toast toast = Toast.makeText(this,noScanData.getMessage(), Toast.LENGTH_SHORT);
+        toast.show();
+    }
 }

@@ -14,6 +14,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class ScanFragment extends Fragment {
     private String codeFormat,codeContent;
+    private final String noResultErrorMsg = "No scan data received!";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,18 +39,18 @@ public class ScanFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         //retrieve scan result
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        ScanResultReceiver parentActivity = (ScanResultReceiver) this.getActivity();
 
         if (scanningResult != null) {
             //we have a result
             codeContent = scanningResult.getContents();
             codeFormat = scanningResult.getFormatName();
-
-            HomeActivity homeActivity = (HomeActivity) this.getActivity();
-            homeActivity.showScanData(codeFormat,codeContent);
+            // send received data
+            parentActivity.scanResultData(codeFormat,codeContent);
 
         }else{
-            Toast toast = Toast.makeText(this.getActivity(),"No scan data received!", Toast.LENGTH_SHORT);
-            toast.show();
+            // send exception
+            parentActivity.scanResultData(new NoScanResultException(noResultErrorMsg));
         }
     }
 }
