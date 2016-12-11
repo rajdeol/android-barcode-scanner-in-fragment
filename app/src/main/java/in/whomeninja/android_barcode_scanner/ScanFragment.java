@@ -22,7 +22,6 @@ public class ScanFragment extends Fragment {
 
         IntentIntegrator integrator = new IntentIntegrator(this.getActivity()).forSupportFragment(this);
         // use forSupportFragment or forFragment method to use fragments instead of activity
-        // use setCaptureLayout to provide the ID of layout to use for scanning
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
         integrator.setPrompt(this.getString(R.string.scan_bar_code));
         integrator.setResultDisplayDuration(0); // milliseconds to display result on screen after scan
